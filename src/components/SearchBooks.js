@@ -15,12 +15,12 @@ const SearchBooks = () => {
     const [semstate,setsemstate]= useState("semester");
 
     return (
-        <div className="SearchBooks">
+        <div id="searchbookid" className="SearchBooks">
             <div className='outer'>
                 <div className='upper'>
                     <div className='first_part'>
                     <div className="container-b">
-                    <div className='first_part_nav'>
+                    <div className='first_part_nav' >
                         <Button color="primary" className='header_button btn btn-2'>Home Page</Button>
                     </div>
                     </div>
@@ -52,7 +52,7 @@ const SearchBooks = () => {
                         <div className="dropdowns">
                         <div className="rainbow-text">
                         1.Select Your College Here
-                        </div>
+                        </div> 
                         
                         <select className="selectoptions" value={collegestate} onChange={(e)=>{
                             setcollegestate(e.target.value);

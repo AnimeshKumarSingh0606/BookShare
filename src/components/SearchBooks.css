@@ -16,7 +16,10 @@
     overflow-y: scroll;
     background-size: 100% 100%;
 }
-
+.subbtn{
+  border: none;
+  outline: none;
+}
 .outer{
     position: absolute;
     height: auto;
@@ -233,4 +236,28 @@ select:onclicked{
       background-size: 57%;
       background-position: 0 0;
     }
+  }
+
+
+  @media (max-width: 898px) {
+    .outer{
+      width: 88%;
+      height: 87%;
+    }
+    
+  }
+
+  @media (max-width: 738px) {
+    .outer{
+      width: 95%;
+      height: 95%;
+    }
+    .upper{
+      
+      margin: 1%;
+      margin-top: 8%;
+      }
+      .dropdowns{
+        width: 95%;
+      }
   }
