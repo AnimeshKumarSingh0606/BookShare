@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import {posts} from './dummydata';
 import { makeStyles } from '@material-ui/core/styles';
 import Fab from '@mui/material/Fab';
-import NavigationIcon from '@mui/icons-material/Navigation';
+import { semester,branchname } from './dummydata';
 import './Searchresult.css';
 import { 
     Table,
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.dark,
         color: theme.palette.getContrastText(theme.palette.primary.dark)
     },
-    avatar: {
+    avatar: { 
         backgroundColor: theme.palette.primary.light,
         color: theme.palette.getContrastText(theme.palette.primary.light)
     },
@@ -81,8 +81,50 @@ function MTable() {
     console.log("hi");
   };
 
+  const [semesterstate,setsemesterstate]=useState("Semester");
+
   return (
+    
+  <>
+
+    
+
     <div className="entirebody">
+
+    <div className="selectsection">
+        <div className="firstsec">
+            <span className="title">Select Branch</span>
+            <div className="selectstyle">
+            <select className="selecttag" value={semesterstate} onChange={(e)=>{
+                            setsemesterstate(e.target.value);
+                        }}  >
+                        {semester.map((sem)=>{
+                            return(
+                                <option value={sem.value}>{sem.sem}</option>
+                            );
+                        })}
+            </select>
+            </div>
+        </div>
+        <div className="firstsec">
+        <span className="title">Select Branch</span>
+            <div className="selectstyle">
+            <select className="selecttag" value={semesterstate} onChange={(e)=>{
+                            setsemesterstate(e.target.value);
+                        }}  >
+                        {branchname.map((branch)=>{
+                            return(
+                                <option value={branch.value}>{branch.bname}</option>
+                            );
+                        })}
+            </select>
+            </div>
+          </div>
+          <div className="btnsec">
+            <button className="filterbtn" type="submit" >Filter</button>
+          </div>
+    </div>
+
     <TableContainer component={Paper} className={classes.tableContainer} >
       <Table className={classes.table} aria-label="simple table">
         <TableHead className={classes.tableHeader}>
@@ -97,7 +139,7 @@ function MTable() {
         </TableHead>
         <TableBody>
           {posts.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((post,index) => (
-            <TableRow key={post.postid}>
+            <TableRow className={(index%2==0)?"oddrow":""} key={post.postid}>
               <TableCell>
                   {page * rowsPerPage+index+1}
                 </TableCell>
@@ -113,11 +155,11 @@ function MTable() {
                 </TableCell>
                 <TableCell>
                 
-                <Fab variant="extended"   >
+                <Fab variant="extended"  className="subbtn" >
                   <form onClick={handleclick}>
                     <input type='hidden' name="specificpost" onChange={nothing}  value={post.postid}/>
                   
-                        <button className="subbtn" type="submit"> View </button>
+                        <button className="subbtn" type="submit"><pre>  View  </pre></button>
                        
                     
                     </form>
@@ -141,6 +183,7 @@ function MTable() {
     </TableContainer>
             
     </div>
+  </>
   );
 }
 

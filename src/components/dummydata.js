@@ -17,6 +17,29 @@ const collegename=[
     }
 ];
 
+const branchname=[
+    {
+        value:"Computer Science and Engineering",
+        bname:"Civil Engineering",
+    },
+    {
+        value:"Electrical Engineering",
+        bname:"Electrical Engineering",
+    },
+    {
+        value:"Mechanical Engineering",
+        bname:"Mechanical Engineering",
+    },
+    {
+        value:"Civil Engineering",
+        bname:"Civil Engineering",
+    },
+    {
+        value:"Textile Engineering",
+        bname:"Textile Engineering",
+    }
+];
+
 const subjectname=[
     {
         value:"Mathematics",
@@ -195,4 +218,4 @@ const posts=[
     }
 ];
 
-export {collegename,subjectname,semester,posts};
+export {collegename,subjectname,semester,posts,branchname};

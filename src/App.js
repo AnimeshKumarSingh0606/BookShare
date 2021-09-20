@@ -6,8 +6,8 @@ import Searchresult from './components/Searchresult.js';
 function App() {
   return (
     <div className="App">
-      <SearchBooks/>
-      {/* <Searchresult/> */}
+      {/* <SearchBooks/> */}
+      <Searchresult/>
     </div>
   );
 }
